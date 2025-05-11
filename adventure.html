@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book Your Adventure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    header{
+    display:flex;
+    background-color:#fff;
+    box-shadow: 0 0 10px rgba(0,0,0 ,0.1);
+    padding:3px;
+    align-items: center;
+    height:72px;
+}
+.logo img{
+max-width:27%;
+}
+.nav_menu ul{
+ display:flex;
+ padding:30px;
+}
+.nav_menu :last-child{
+    margin-right: 0%;
+}
+.nav_menu li{
+    list-style: none;
+    margin-right: 30px;
+}
+.nav_menu a{
+    text-decoration: none;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1rem;
+    color:rgb(43, 112, 112)
+}
+.nav_menu a:hover{
+    color:rgb(22, 1, 1)
+}
+
+    body, html {
+      font-family: 'Roboto', sans-serif;
+      height: 100%;
+      color: #333;
+    }
+
+    .background {
+      background: linear-gradient(135deg, rgba(81, 146, 146, 0.7), rgba(44, 65, 62, 0.7));
+      height: 100%;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 80px auto;
+      padding: 40px;
+      background: rgba(255,255,255,0.96);
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    p.subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .form-container, .calendar-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .destination, .details, .form-group {
+      width: 48%;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    select, input[type="date"], button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 6px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: #f9f9f9;
+      color: #333;
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+
+    select:focus, input[type="date"]:focus {
+      border-color: #526e6c;
+      box-shadow: 0 0 10px rgba(64, 224, 208, 0.4);
+      outline: none;
+    }
+
+    button {
+      background-color: #4e837e;
+      color: white;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: #31514f;
+      transform: scale(1.03);
+    }
+
+    .details ul {
+      list-style: none;
+      padding-left: 20px;
+    }
+
+    .details li {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .details span {
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .destination, .details, .form-group {
+        width: 100%;
+      }
+      .form-container, .calendar-container {
+        flex-direction: column;
+      }
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border: 2px solid #40e0d0;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      z-index: 999;
+      text-align: center;
+    }
+
+    .modal.show {
+      display: block;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translate(-50%, -60%); }
+      to { opacity: 1; transform: translate(-50%, -50%); }
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <header>
+            <div class="logo">
+                <a href="#"><img src="images/logo.png" alt="logo"></a>
+            </div>
+            <nav class="nav_menu">
+                <ul>
+                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="login.html">DESTINATIONS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+        </header>
+    </header>
+  <div class="background"></div>
+  <div class="container">
+    <h1>Book Your Adventure</h1>
+    <p class="subtitle">Select your dream destination, pick your travel dates, and confirm your booking!</p>
+
+    <form id="booking-form">
+      <div class="form-container">
+        <div class="destination">
+          <label for="adventure-select">Choose Your Adventure</label>
+          <select id="adventure-select" name="adventure" required>
+            <option value="" disabled selected>Select a destination</option>
+            <option value="paris">Paris - Eiffel Tower</option>
+            <option value="switzerland">Switzerland - Alpine Hike</option>
+            <option value="bali">Bali - Beach Exploration</option>
+            <option value="japan">Japan - Cherry Blossom Tour</option>
+            <option value="grandcanyon">USA - Grand Canyon Adventure</option>
+            <option value="egypt">Egypt - Pyramids Expedition</option>
+            <option value="australia">Australia - Barrier Reef Dive</option>
+            <option value="iceland">Iceland - Northern Lights</option>
+            <option value="skydiving">Dubai - Skydiving Experience</option>
+            <option value="scubadiving">Maldives - Scuba Diving</option>
+            <option value="rafting">Nepal - White Water Rafting</option>
+            <option value="safari">Kenya - Wildlife Safari</option>
+            <option value="snowboarding">Canada - Snowboarding in Whistler</option>
+            <option value="paragliding">Austria - Paragliding in Alps</option>
+          </select>
+        </div>
+
+        <div class="details">
+          <label>Adventure Details</label>
+          <ul id="details-list">
+            <li><span>Price:</span> $1500</li>
+            <li><span>Duration:</span> 7 Days</li>
+            <li><span>Location:</span> Varies</li>
+            <li><span>Availability:</span> Daily Departures</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="calendar-container">
+        <div class="form-group">
+          <label for="start-date">Start Date</label>
+          <input type="date" id="start-date" name="start-date" required>
+        </div>
+        <div class="form-group">
+          <label for="end-date">End Date</label>
+          <input type="date" id="end-date" name="end-date" required>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <button type="submit">Confirm Booking</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="modal" id="confirmation-modal">
+    <h2>✅ Booking Confirmed!</h2>
+    <p>We’ve received your booking. Get ready for an amazing adventure! 🌍</p>
+  </div>
+
+  <script>
+    const adventureSelect = document.getElementById('adventure-select');
+    const detailsList = document.getElementById('details-list');
+    const form = document.getElementById('booking-form');
+    const modal = document.getElementById('confirmation-modal');
+
+    const adventures = {
+      paris: ["$1200", "5 Days", "Paris, France", "Every Monday"],
+      switzerland: ["$1800", "6 Days", "Swiss Alps", "Fridays"],
+      bali: ["$1000", "7 Days", "Bali, Indonesia", "Weekends"],
+      japan: ["$2000", "8 Days", "Tokyo & Kyoto", "Spring Season"],
+      grandcanyon: ["$1300", "4 Days", "Arizona, USA", "Daily"],
+      egypt: ["$1600", "6 Days", "Cairo & Giza", "Tuesdays"],
+      australia: ["$2200", "7 Days", "Queensland, AU", "Monthly"],
+      iceland: ["$2500", "5 Days", "Reykjavik", "Winter Only"],
+      skydiving: ["$3000", "2 Days", "Dubai, UAE", "Year-Round"],
+      scubadiving: ["$2200", "5 Days", "Maldives", "Summer & Fall"],
+      rafting: ["$900", "3 Days", "Trishuli River, Nepal", "Monsoon Season"],
+      safari: ["$2100", "6 Days", "Maasai Mara, Kenya", "August - October"],
+      snowboarding: ["$2400", "5 Days", "Whistler, Canada", "Winter"],
+      paragliding: ["$1700", "4 Days", "Tyrol, Austria", "April - September"]
+    };
+
+    adventureSelect.addEventListener('change', () => {
+      const value = adventureSelect.value;
+      const [price, duration, location, availability] = adventures[value] || [];
+      detailsList.innerHTML = `
+        <li><span>Price:</span> ${price}</li>
+        <li><span>Duration:</span> ${duration}</li>
+        <li><span>Location:</span> ${location}</li>
+        <li><span>Availability:</span> ${availability}</li>
+      `;
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const startDate = new Date(document.getElementById('start-date').value);
+      const endDate = new Date(document.getElementById('end-date').value);
+
+      if (endDate <= startDate) {
+        alert("End date must be after the start date.");
+        return;
+      }
+
+      modal.classList.add("show");
+      setTimeout(() => modal.classList.remove("show"), 3000);
+    });
+  </script>
+</body>
+</html>
