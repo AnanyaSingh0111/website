@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>travel website</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        header{
+    display:flex;
+    background-color:#fff;
+    box-shadow: 0 0 10px rgba(0,0,0 ,0.1);
+    padding:3px;
+    align-items: center;
+    height:72px;
+}
+.logo img{
+max-width:27%;
+}
+.nav_menu ul{
+ display:flex;
+ padding:30px;
+}
+.nav_menu :last-child{
+    margin-right: 0%;
+}
+.nav_menu li{
+    list-style: none;
+    margin-right: 30px;
+}
+.nav_menu a{
+    text-decoration: none;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1rem;
+    color:rgb(43, 112, 112)
+}
+.nav_menu a:hover{
+    color:rgb(22, 1, 1)
+}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .carousel-container {
+            width: 100%;
+            max-width: 1000px;
+            text-align: center;
+        }
+        .swiper {
+            padding: 70px 0;
+        }
+        .swiper-slide {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        .slide-caption {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.4);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .book-button {
+            display: inline-block;
+            text-decoration: none;
+            margin: 20px auto;
+            padding: 12px 24px;
+            background-color: rgb(70, 145, 145);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+           
+        }
+        .book-button:hover {
+            background-color: rgb(97, 94, 90);
+        }
+        footer {
+            width: 100%;
+            background: #5b5959;
+            color: white;
+            padding: 40px 20px 10px;
+        }
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .footer-column {
+            flex: 1 1 250px;
+            margin: 20px;
+        }
+        .footer-column h3 {
+            margin-bottom: 15px;
+        }
+        .footer-column p, .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-column a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            color: #aaa;
+        }
+        .newsletter input[type="email"] {
+            padding: 10px;
+            flex: 1;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+        .newsletter button {
+            padding: 10px 15px;
+            border: none;
+            background: #f97316;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .newsletter {
+            display: flex;
+            margin-top: 10px;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <header>
+            <div class="logo">
+                <a href="#"><img src="images/logo.png" alt="logo"></a>
+            </div>
+            <nav class="nav_menu">
+                <ul>
+                    <li><a href="login.html">LOGIN</a></li>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="destination.html">DESTINATIONS</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+        </header>
+    </header>
+    <main>
+        <section class="hero">
+        <div class="hero-img">
+            <img src="images/download.jpeg" alt="hero image">
+        </div>
+        <div class="hero-content">
+        <h1>
+            The world is calling—let’s answer together!
+        </h1>
+        <p>
+            Wander the world, chase the horizon
+        </p>
+        </div>
+        </section>
+    <div class="carousel-container">
+        <h2 style="margin-bottom: 20px; font-size: 24px; color: rgb(43, 112, 112);padding-top: 7%;">Explore Beautiful Destinations</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+            
+               
+                <div class="swiper-slide">
+                    <img src="images/Santorini.jpeg" alt="Santorini, Greece">
+                    <div class="slide-caption">Santorini, Greece</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/bali.jpeg" alt="Bali, Indonesia">
+                    <div class="slide-caption">Bali, Indonesia</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/paris" alt="Paris, France">
+                    <div class="slide-caption">Paris, France</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/banff.jpeg" alt="Banff, Canada">
+                    <div class="slide-caption">Banff, Canada</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/tokyo.jpeg" alt="Tokyo, Japan">
+                    <div class="slide-caption">Tokyo, Japan</div>
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="images/rome.jpeg" alt="Rome, Italy">
+                    <div class="slide-caption">Rome, Italy</div>
+                </div>
+               
+                <div class="swiper-slide">
+                    <img src="images/machupichu.jpeg" alt="Machu Picchu, Peru">
+                    <div class="slide-caption">Machu Picchu, Peru</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/capetown.jpeg" alt="Cape Town, South Africa">
+                    <div class="slide-caption">Cape Town, South Africa</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/dubai.jpeg" alt="Dubai, UAE">
+                    <div class="slide-caption">Dubai, UAE</div>
+                </div>
+               
+                <div class="swiper-slide">
+                    <img src="images/swissalps.jpeg" alt="Swiss Alps, Switzerland">
+                    <div class="slide-caption">Swiss Alps, Switzerland</div>
+                </div>
+            
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+     <a href="destination.html"><button class="book-button">Book Now</button></a>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            centeredSlides: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+     <div class="carousel-container">
+        <h2 style="margin-bottom: 20px; font-size: 24px; color: rgb(43, 112, 112);padding-top: 7%;">Explore Adventures Around World</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="images/hiking.jpeg" alt="Hiking">
+                    <div class="slide-caption">Hiking</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/skydiving.jpeg" alt="sky diving">
+                    <div class="slide-caption">Sky Diving</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/Rafting.jpeg" alt="rafting">
+                    <div class="slide-caption">Rafting</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/Scuba.jpeg" alt="Scuba diving">
+                    <div class="slide-caption">Scuba Diving</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/bungee.jpeg" alt="Bungee">
+                    <div class="slide-caption">Bungee Jumping</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/cannoeing.jpeg" alt="Cnnoeing">
+                    <div class="slide-caption">Cannoeing</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/rockclimb.jpeg" alt="rock climb">
+                    <div class="slide-caption">Rock Climbing</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/camping.jpeg" alt="camping">
+                    <div class="slide-caption">Camping</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/airballoon.jpeg" alt="air balloon">
+                    <div class="slide-caption">Hot Air Balloon</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="images/paragliding.jpeg" alt="paragliding">
+                    <div class="slide-caption">Paragliding</div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <a href="adventure.html"><button class="book-button">Book Now</button></a>
+    </div>
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            centeredSlides: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+    </main>
+    <section style="background-color: #f2f2f2; padding: 50px 20px;">
+        <h2 style="text-align: center; color: rgb(43, 112, 112); margin-bottom: 30px;">What Our Travelers Say</h2>
+        <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 30px;">
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 300px;">
+            <p>"An amazing experience! Everything was perfectly organized. Highly recommend TravelNow!"</p>
+            <p style="font-weight: bold; margin-top: 10px;">-Andreah</p>
+          </div>
+          <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 300px;">
+            <p>"Loved the adventure section. My skydiving trip was once in a lifetime!"</p>
+            <p style="font-weight: bold; margin-top: 10px;">- Conrad</p>
+          </div>
+        </div>
+      </section>
+<br>
+<br>
+<br>      
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>We are your trusted travel partner. Explore global destinations, thrilling adventures, and curated experiences all in one place.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <p><a href="login.html">Login</a></p>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="about.html">About</a></p>
+                <p><a href="destination.html">Destinations</a></p>
+                <p><a href="adventure.html">Adventures</a></p>
+                <p><a href="contact.html">Contact</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                <p><i class="fas fa-envelope"></i> support@treksphere.com</p>
+                <p><i class="fas fa-phone"></i> +91-xxxxxxxxxx</p>
+            </div>
+            <div class="footer-column">
+                <h3>Subscribe</h3>
+                <p>Get updates on latest deals & tips.</p>
+                <form class="newsletter">
+                    <input type="email" placeholder="Your email">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Trek Sphere. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
