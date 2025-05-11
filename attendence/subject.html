@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subject Wise Analysis | Attendance Tracker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
+    }
+    nav {
+      background-color: #2c3e50;
+      padding: 15px;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      justify-content: space-around;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2, h3 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table th, table td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    table th {
+      background-color: #3498db;
+      color: white;
+    }
+    .percentage {
+      font-weight: bold;
+      color: #27ae60;
+    }
+    form {
+      margin-top: 30px;
+      text-align: center;
+    }
+    label, select, input[type="date"] {
+      margin-right: 10px;
+      font-size: 16px;
+    }
+    .mark-button {
+      padding: 6px 12px;
+      margin: 2px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .present {
+      background-color: #2ecc71;
+      color: white;
+    }
+    .absent {
+      background-color: #e74c3c;
+      color: white;
+    }
+    .attendance-log {
+      margin-top: 40px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const subjects = ['Mathematics', 'OOPS', 'Data Structure', 'Web Designing','Communication Skills'];
+      let attendanceData = {};
+
+      subjects.forEach(subject => {
+        attendanceData[subject] = { total: 0, attended: 0 };
+      });
+
+      const tbody = document.querySelector('tbody');
+      const updateTable = () => {
+        tbody.innerHTML = '';
+        subjects.forEach(subject => {
+          const data = attendanceData[subject];
+          const percentage = data.total ? ((data.attended / data.total) * 100).toFixed(1) : '0.0';
+          tbody.innerHTML += `
+            <tr>
+              <td>${subject}</td>
+              <td>${data.total}</td>
+              <td>${data.attended}</td>
+              <td class="percentage">${percentage}%</td>
+            </tr>
+          `;
+        });
+      };
+
+      updateTable();
+
+      const presentBtn = document.querySelector('.present');
+      const absentBtn = document.querySelector('.absent');
+      const dateInput = document.getElementById('date');
+      const subjectSelect = document.getElementById('subject');
+      const logTableBody = document.getElementById('log-body');
+
+      const markAttendance = (status) => {
+        const date = dateInput.value;
+        const subject = subjectSelect.value;
+        if (!date || !subject) return;
+
+        attendanceData[subject].total += 1;
+        if (status === 'present') {
+          attendanceData[subject].attended += 1;
+        }
+
+        logTableBody.innerHTML += `
+          <tr>
+            <td>${date}</td>
+            <td>${subject}</td>
+            <td>${status === 'present' ? 'Present' : 'Absent'}</td>
+          </tr>
+        `;
+
+        updateTable();
+      };
+
+      presentBtn.addEventListener('click', () => markAttendance('present'));
+      absentBtn.addEventListener('click', () => markAttendance('absent'));
+    });
+  </script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h2>Subject-Wise Attendance Analysis</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Total Classes</th>
+          <th>Classes Attended</th>
+          <th>Attendance (%)</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Mark Attendance</h3>
+    <form>
+      <label for="date">Select Date:</label>
+      <input type="date" id="date" name="date" required>
+
+      <label for="subject">Select Subject:</label>
+      <select id="subject" name="subject" required>
+        <option value="Mathematics">Mathematics</option>
+        <option value="OOPS">OOPS</option>
+        <option value="Data Structure">Data Structure</option>
+        <option value="web Designing">Web Designing</option>
+        <option value="Communication Skills">Communication Skills</option>
+      </select>
+
+      <button type="button" class="mark-button present">Mark Present</button>
+      <button type="button" class="mark-button absent">Mark Absent</button>
+    </form>
+
+    <div class="attendance-log">
+      <h3>Daily Attendance Log</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Subject</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="log-body"></tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

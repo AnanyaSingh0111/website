@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+  
+  <header>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+        </div>
+        <nav class="nav_menu">
+            <ul>
+              <li><a href="login.html">LOGIN</a></li>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="destination.html">DESTINATIONS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+</header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Our Journey to Explore the World</h1>
+      <p>Passionate about discovering new places and sharing hidden gems with you.</p>
+    </div>
+  </section>
+
+  <!-- About Us Section -->
+  <section class="about">
+    <div class="about-content">
+      <h2>Who We Are</h2>
+      <p>At Travel Adventures, we are a team of explorers with one goal in mind: to inspire you to embark on your own adventure.</p>
+      <div class="about-image">
+        <img src="images/about.png" alt="Travel Team">
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="mission">
+    <div class="mission-content">
+      <h2>Our Mission</h2>
+      <p>We believe in responsible travel that connects people with nature, culture, and local communities. Our goal is to encourage you to travel in a way that respects the environment.</p>
+    </div>
+  </section>
+
+  <!-- Meet the Team Section -->
+  <section class="team">
+    <h2>Meet Our Team</h2>
+    <div class="team-container">
+      <div class="team-member" onclick="showMemberDetails('John Doe', 'Founder & Chief Explorer', 'John’s passion for adventure started at the age of 12 when he trekked through the Swiss Alps. Now, he leads our team with a mission to inspire others to explore the world.', 'team-member1.jpg')">
+        <img src="team-member1.jpg" alt="Team Member 1">
+        <h3>Ananya Singh</h3>
+        <p>Founder & Chief Explorer</p>
+      </div>
+      <div class="team-member" onclick="showMemberDetails('Jane Smith', 'Destination Expert', 'Jane has been to over 40 countries and specializes in crafting unforgettable travel experiences. She’s the go-to person for hidden gems and off-the-beaten-path destinations.', 'team-member2.jpg')">
+        <img src="team-member2.jpg" alt="Team Member 2">
+        <h3>Akanksha Snehal</h3>
+        <p>Destination Expert</p>
+      </div>
+      <div class="team-member" onclick="showMemberDetails('David Lee', 'Travel Writer & Photographer', 'David captures the beauty of the world through his lens and his words. His travel stories take you to places you never thought possible and provide tips for every type of traveler.', 'team-member3.jpg')">
+        <img src="team-member3.jpg" alt="Team Member 3">
+        <h3>Sai Prathiksha</h3>
+        <p>Travel Writer & Photographer</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Member Modal (Popup) -->
+  <div id="teamModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h3 id="modal-name"></h3>
+      <p id="modal-position"></p>
+      <p id="modal-description"></p>
+      <img id="modal-image" src="" alt="Team Member">
+    </div>
+  </div>
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <p>© 2025 Trek Sphere | Crafted with passion for travelers like you</p>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

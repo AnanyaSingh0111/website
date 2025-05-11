@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Swipe Cards</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+            flex-direction: column;
+        }
+        .carousel-container {
+            width: 80%;
+            max-width: 1000px;
+            position: relative;
+            text-align: center;
+        }
+        .swiper {
+            padding: 20px 0;
+        }
+        .swiper-slide {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .swiper-slide img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        .slide-caption {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .book-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: orange;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .book-button:hover {
+            background-color: darkorange;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <h2 style="margin-bottom: 20px; font-size: 24px; color: #333;">Explore Beautiful Destinations</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="/images/machu-picchu.jpg" alt="Machu Picchu, Peru">
+                    <div class="slide-caption">Machu Picchu, Peru</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/images/swiss-alps.jpg" alt="Swiss Alps, Switzerland">
+                    <div class="slide-caption">Swiss Alps, Switzerland</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/images/banff.jpg" alt="Banff, Canada">
+                    <div class="slide-caption">Banff, Canada</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/images/santorini.jpg" alt="Santorini, Greece">
+                    <div class="slide-caption">Santorini, Greece</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/images/bali.jpg" alt="Bali, Indonesia">
+                    <div class="slide-caption">Bali, Indonesia</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/images/paris.jpg" alt="Paris, France">
+                    <div class="slide-caption">Paris, France</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/images/tokyo.jpg" alt="Tokyo, Japan">
+                    <div class="slide-caption">Tokyo, Japan</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/images/dubai.jpg" alt="Dubai, UAE">
+                    <div class="slide-caption">Dubai, UAE</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/images/rome.jpg" alt="Rome, Italy">
+                    <div class="slide-caption">Rome, Italy</div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="/images/cape-town.jpg" alt="Cape Town, South Africa">
+                    <div class="slide-caption">Cape Town, South Africa</div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        <button class="book-button">Book Now</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            loop: true,
+            centeredSlides: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+</html>

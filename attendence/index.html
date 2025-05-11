@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home | Attendance Tracker</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f8fa;
+    }
+    nav {
+      background-color: #2c3e50;
+      padding: 15px;
+    }
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      justify-content: space-around;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      text-align: center;
+      padding: 130px 20px;
+      background-color: #3498db;
+      color: white;
+    }
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2em;
+    }
+    .features a{
+        text-decoration: none;
+    }
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 60px 20px;
+    
+    }
+    .feature {
+      flex: 1 1 300px;
+      margin: 20px;
+      padding: 30px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .feature h3 {
+      color: #2c3e50;
+    }
+    .feature p {
+      color: #666;
+    }
+    .cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .cta a {
+      padding: 12px 24px;
+      background-color: #2ecc71;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 1em;
+    }
+    .cta a:hover {
+      background-color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h1>Welcome College Students!</h1>
+    <p>Your personal companion for daily attendance tracking, subject-wise records, and performance insights.</p>
+  </section>
+
+  <section class="features">
+    <div class="feature">
+        <a href="subject.html">
+      <h3>Subject-Wise Tracking</h3>
+      <p>Mark your attendance for each subject every day and keep an organized log.</p>
+      </a>
+    </div>
+    <div class="feature">
+        <a href="realtime.html">
+      <h3>Real-Time Analytics</h3>
+      <p>Get instant percentages and insights on your class presence over the semester.</p>
+      </a>
+    </div>
+    <div class="feature">
+      <h3>Secure & Private</h3>
+      <p>Your attendance data is safely stored and only accessible to you.</p>
+    </div>
+  </section>
+
+  <div class="cta">
+    <a href="login.html">Start Tracking Now</a>
+  </div>
+</body>
+</html>

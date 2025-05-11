@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Attendance Analysis</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+    nav {
+      background-color: #2c3e50;
+      padding: 15px;
+    }
+    nav ul {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      justify-content: space-around;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 40px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      font-size: 2.5rem;
+    }
+    .description {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 750px;
+      margin: 0 auto 30px auto;
+      line-height: 1.6;
+    }
+    .info-section {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .info-section p {
+      font-size: 1rem;
+      margin: 10px 0;
+      color: #444;
+    }
+    .chart {
+      text-align: center;
+    }
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="profile.html">Profile</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Real-Time Attendance Analysis</h1>
+    <p class="description">
+      This dashboard gives you a real-time view of your subject-wise attendance. Monitor your performance daily, identify areas that need improvement, and maintain consistent attendance to stay eligible for exams.
+    </p>
+
+    <div class="info-section">
+      <p><strong>Total Subjects:</strong> 5</p>
+      <p><strong>Average Attendance:</strong> 87.6%</p>
+      <p><strong>Last Updated:</strong> April 12, 2025</p>
+    </div>
+
+    <div class="chart">
+      <canvas id="attendanceChart"></canvas>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('attendanceChart').getContext('2d');
+    const attendanceChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Maths', 'Physics', 'Chemistry', 'CS', 'English'],
+        datasets: [{
+          label: 'Attendance (%)',
+          data: [88, 92, 85, 78, 95],
+          backgroundColor: [
+            '#3498db',
+            '#2ecc71',
+            '#e67e22',
+            '#9b59b6',
+            '#1abc9c'
+          ],
+          borderRadius: 8
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false
+          },
+          title: {
+            display: true,
+            text: 'Subject-wise Attendance Performance',
+            font: {
+              size: 20
+            },
+            color: '#34495e'
+          },
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                return `Attendance: ${context.raw}%`;
+              }
+            }
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            ticks: {
+              stepSize: 10,
+              color: '#555',
+              font: {
+                size: 12
+              }
+            },
+            grid: {
+              color: '#ecf0f1'
+            }
+          },
+          x: {
+            ticks: {
+              color: '#555',
+              font: {
+                size: 12
+              }
+            },
+            grid: {
+              color: '#ecf0f1'
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
